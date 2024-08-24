@@ -696,9 +696,11 @@ void gcode_spread_points(
 		}
 		*/
 		float area_total     = 0;
+		// unused
 		float volume_total   = 0;
 		float volume_excess  = 0;
 		float volume_deficit = 0;
+
 		size_t n_cells = 0;
 		float area_circle_total = 0; 
 #if 0

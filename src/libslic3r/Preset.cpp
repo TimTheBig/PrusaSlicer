@@ -230,7 +230,7 @@ VendorProfile VendorProfile::from_ini(const ptree &tree, const boost::filesystem
 std::vector<std::string> VendorProfile::families() const
 {
     std::vector<std::string> res;
-    unsigned num_familiies = 0;
+    unsigned num_familiies = 0; // unused findout why
 
     for (auto &model : models) {
         if (std::find(res.begin(), res.end(), model.family) == res.end()) {
@@ -2167,7 +2167,7 @@ size_t ExtruderFilaments::update_compatible_internal(const PresetWithVendorProfi
     const ConfigOption* opt = active_printer.preset.config.option("nozzle_diameter");
     if (opt)
         config.set_key_value("num_extruders", new ConfigOptionInt((int)static_cast<const ConfigOptionFloats*>(opt)->values.size()));
-    bool some_compatible = false;
+    bool some_compatible = false; // unused findout why
 
     // Adjust printer preset config to the first extruder from m_extruder_id 
     Preset printer_preset_adjusted = active_printer.preset;

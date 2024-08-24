@@ -6,7 +6,8 @@
 #include "libslic3r/Format/ZipperArchiveImport.hpp"
 
 #define NANOSVG_IMPLEMENTATION
-#include "nanosvg/nanosvg.h"
+// the folder structure of NanoSVG is NanoSVG/nanosvg/include/nanosvg.h
+#include <../deps/NanoSVG/nanosvg/include/nanosvg.h>
 
 #include <limits>
 #include <cstdint>

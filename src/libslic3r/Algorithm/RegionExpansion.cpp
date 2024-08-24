@@ -255,7 +255,7 @@ std::vector<WaveSeed> wave_seeds(
     // Multiple pieces of a single src may intersect the same boundary.
     WaveSeeds out;
     out.reserve(segments.size());
-    int iseed = 0;
+    int iseed = 0; // unused findout why
     for (const ClipperLib_Z::Path &path : segments) {
         assert(path.size() >= 2);
         const ClipperLib_Z::IntPoint &front = path.front();

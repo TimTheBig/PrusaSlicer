@@ -29,7 +29,7 @@
 #include "libslic3r/BuildVolume.hpp"
 
 #include "imgui/imgui_stdlib.h" // using std::string for inputs
-#include "nanosvg/nanosvg.h"    // load SVG file
+#include <../deps/NanoSVG/nanosvg/include/nanosvg.h>    // load SVG file
 
 #include <wx/font.h>
 #include <wx/fontutil.h>

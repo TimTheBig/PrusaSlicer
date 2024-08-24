@@ -5281,7 +5281,7 @@ void Plater::load_project(const wxString& filename)
 
     p->reset();
 
-    if (! load_files({ into_path(filename) }).empty()) {
+    if (! load_files(std::vector<boost::filesystem::path>{ into_path(filename) }).empty()) {
         // At least one file was loaded.
         p->set_project_filename(filename);
         // Save the names of active presets and project specific config into ProjectDirtyStateManager.
@@ -5647,7 +5647,7 @@ bool Plater::preview_zip_archive(const boost::filesystem::path& archive_path)
                             std::replace(name.begin(), name.end(), '\\', '/');
                             // rename if file exists
                             std::string filename = path.filename().string();
-                            std::string extension = boost::filesystem::extension(path);
+                            std::string extension = path.extension().string();
                             std::string just_filename = filename.substr(0, filename.size() - extension.size());
                             std::string final_filename = just_filename;
 

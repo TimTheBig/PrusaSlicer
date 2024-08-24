@@ -3156,7 +3156,7 @@ std::string GCode::_extrude(const ExtrusionPath &path, const std::string_view de
     if (!variable_speed_or_fan_speed) {
         // F is mm per minute.
         gcode += m_writer.set_speed(F, "", cooling_marker_setspeed_comments);
-        double path_length = 0.;
+        double path_length = 0.; // unused findout why
         std::string comment;
         if (m_config.gcode_comments) {
             comment = description;

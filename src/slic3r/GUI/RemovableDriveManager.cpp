@@ -31,7 +31,8 @@
 #include <pwd.h>
 #include <boost/filesystem.hpp>
 #include <boost/system/error_code.hpp>
-#include <boost/filesystem/convenience.hpp>
+// #include <boost/filesystem/convenience.hpp>
+#include <libigl/igl/basename.h>
 #include <boost/process.hpp>
 #endif
 
@@ -753,7 +754,7 @@ namespace search_for_drives_internal
 				stat(path.c_str(), &buf);
 				uid_t uid = buf.st_uid;
 				if (getuid() == uid)
-					out.emplace_back(DriveData{ boost::filesystem::basename(boost::filesystem::path(path)), path });
+					out.emplace_back(DriveData{ igl::basename(path), path });
 			}
 		}
 	}

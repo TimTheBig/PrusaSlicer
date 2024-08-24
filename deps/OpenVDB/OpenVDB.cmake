@@ -7,16 +7,16 @@ else()
 endif()
 
 set (_openvdb_vdbprint ON)
-if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
-    # Build fails on raspberry pi due to missing link directive to latomic
-    # Let's hope it will be fixed soon.
-    set (_openvdb_vdbprint OFF)
-endif ()
+# if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+#     # Build fails on raspberry pi due to missing link directive to latomic
+#     # Let's hope it will be fixed soon.
+#     set (_openvdb_vdbprint OFF)
+# endif ()
 
 prusaslicer_add_cmake_project(OpenVDB
-    # 8.2 patched
-    URL https://github.com/tamasmeszaros/openvdb/archive/a68fd58d0e2b85f01adeb8b13d7555183ab10aa5.zip
-    URL_HASH SHA256=f353e7b99bd0cbfc27ac9082de51acf32a8bc0b3e21ff9661ecca6f205ec1d81
+    # 11.0.0
+    Git_REPOSITORY https://github.com/AcademySoftwareFoundation/openvdb.git
+    Git_TAG 6c044e628a1ac3546eed48b6f5e9c76dfaa2143e
     DEPENDS dep_TBB dep_Blosc dep_OpenEXR dep_Boost
     CMAKE_ARGS
         -DCMAKE_POSITION_INDEPENDENT_CODE=ON 

@@ -441,7 +441,8 @@ void PhysicalPrinterDialog::build_printhost_settings(ConfigOptionsGroup* m_optgr
             {
 #ifndef __WXGTK__
                 e.Skip();
-                temp->GetToolTip()->Enable(true);
+                temp->Enable(true); // !
+                // temp->GetToolTip()->Enable(true);
 #endif // __WXGTK__
                 // Remove all leading and trailing spaces from the input
                 std::string trimed_str, str = trimed_str = temp->GetValue().ToStdString();
@@ -458,7 +459,7 @@ void PhysicalPrinterDialog::build_printhost_settings(ConfigOptionsGroup* m_optgr
     // Always fill in the "printhost_port" combo box from the config and select it.
     {
         Choice* choice = dynamic_cast<Choice*>(m_optgroup->get_field("printhost_port"));
-        choice->set_values({ m_config->opt_string("printhost_port") });
+        choice->set_values(wxArrayString{ m_config->opt_string("printhost_port") });
         choice->set_selection();
     }
 

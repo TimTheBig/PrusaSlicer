@@ -3,7 +3,7 @@
 
 #include "Polygon.hpp"
 #include "ExPolygon.hpp"
-#include "nanosvg/nanosvg.h"    // load SVG file
+#include <../deps/NanoSVG/nanosvg/include/nanosvg.h>    // load SVG file
 
 namespace Slic3r {
 

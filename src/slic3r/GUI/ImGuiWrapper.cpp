@@ -35,8 +35,8 @@
 #include "GUI_App.hpp"
 
 #include "../Utils/MacDarkMode.hpp"
-#include <nanosvg/nanosvg.h>
-#include <nanosvg/nanosvgrast.h>
+#include <../deps/NanoSVG/nanosvg/include/nanosvg.h>
+#include <../deps/NanoSVG/nanosvg/include/nanosvgrast.h>
 
 // suggest location
 #include "libslic3r/ClipperUtils.hpp" // Slic3r::intersection

@@ -195,7 +195,7 @@ TEST_CASE("Visualize glyph from font", "[Emboss]")
 #endif // VISUALIZE
 
 #include "test_utils.hpp"
-#include "nanosvg/nanosvg.h"    // load SVG file
+#include <../deps/NanoSVG/nanosvg/include/nanosvg.h>    // load SVG file
 #include "libslic3r/NSVGUtils.hpp"
 ExPolygons heal_and_check(const Polygons &polygons)
 {

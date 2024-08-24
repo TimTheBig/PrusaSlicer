@@ -293,7 +293,21 @@ set(SLIC3R_GUI_SOURCES
     Utils/WxFontUtils.hpp
 )
 
-find_package(NanoSVG REQUIRED)
+find_package(NanoSVG REQUIRED) # this uses the variables set by FindNanoSVG.cmake
+if (NOT NanoSVG_FOUND)
+    message(ERROR " NanoSVG not found: ${NANOSVG_LIBRARY}")
+else ()
+    message(STATUS "Found NanoSVG: ${NANOSVG_LIBRARY}")
+endif ()
+
+if (NOT NanoSVG_FOUND)
+    message(ERROR " NanoSVG not found: ${NANOSVG_LIBRARY}")
+    message(ERROR " NanoSVG include dir: ${nanosvg_package}") # Print the contents of nanosvg_package
+else ()
+    message(STATUS "Found NanoSVG: ${NANOSVG_LIBRARY}")
+    message(STATUS "NanoSVG include dir: ${nanosvg_package}") # Print the contents of nanosvg_package
+endif ()
+message(STATUS "NanoSVG: ${NANOSVG_INCLUDE_DIRS}, ${NANOSVG_LIBRARIES}, ${NANOSVG_LIBRARY}")
 
 if (APPLE)
     list(APPEND SLIC3R_GUI_SOURCES
@@ -318,8 +332,9 @@ foreach(_source IN ITEMS ${SLIC3R_GUI_SOURCES})
 endforeach()
 
 encoding_check(libslic3r_gui)
-
-target_link_libraries(libslic3r_gui libslic3r avrdude libcereal imgui GLEW::GLEW OpenGL::GL hidapi libcurl ${wxWidgets_LIBRARIES} NanoSVG::nanosvg NanoSVG::nanosvgrast)
+message("linking librares for libslic3r")
+set(NANOSVG_INCLUDE_DIR "deps/NanoSVG/nanosvg/include/nanosvg.h deps/NanoSVG/nanosvg/include/nanosvgrast.h")
+target_link_libraries(libslic3r_gui libslic3r avrdude libcereal imgui GLEW::GLEW OpenGL::GL hidapi libcurl ${wxWidgets_LIBRARIES} ${NANOSVG_INCLUDE_DIR})#NanoSVG::nanosvg NanoSVG::nanosvgrast)# the NanoSVG variables are set by FindNanoSVG.cmake the variables are: NANOSVG_INCLUDE_DIRS and NANOSVG_LIBRARIES
 
 if (MSVC)
     target_link_libraries(libslic3r_gui Setupapi.lib)

@@ -91,8 +91,8 @@ void self_union(TriangleMesh& mesh)
 
 namespace cgal {
 
-namespace CGALProc    = CGAL::Polygon_mesh_processing;
-namespace CGALParams  = CGAL::Polygon_mesh_processing::parameters;
+namespace CGALProc = CGAL::Polygon_mesh_processing;
+namespace CGALParams = CGAL::Polygon_mesh_processing::parameters;
 
 using EpecKernel = CGAL::Exact_predicates_exact_constructions_kernel;
 using EpicKernel = CGAL::Exact_predicates_inexact_constructions_kernel;
@@ -148,12 +148,12 @@ indexed_triangle_set cgal_to_indexed_triangle_set(const _Mesh &cgalmesh)
     const auto &vertices = cgalmesh.vertices();
     int vsize = int(vertices.size());
 
-    for (auto &vi : vertices) {
+    for (const auto &vi : vertices) {
         auto &v = cgalmesh.point(vi); // Don't ask...
         its.vertices.emplace_back(to_vec3f(v));
     }
 
-    for (auto &face : faces) {
+    for (const auto &face : faces) {
         auto vtc = cgalmesh.vertices_around_face(cgalmesh.halfedge(face));
 
         int i = 0;

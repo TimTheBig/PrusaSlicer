@@ -187,26 +187,26 @@ public:
  */
 template<class...Args, class Fn>
 inline static void apply(Fn&& fn, Args&&...args) {
-    MetaLoop<Args...>().run(tuple<Args&&...>(forward<Args>(args)...),
-                            forward<Fn>(fn));
+    MetaLoop<Args...>().run(tuple<Args&&...>(std::forward<Args>(args)...),
+                            std::forward<Fn>(fn));
 }
 
 /// The version of apply with a tuple rvalue reference.
 template<class...Args, class Fn>
 inline static void apply(Fn&& fn, tuple<Args...>&& tup) {
-    MetaLoop<Args...>().run(std::move(tup), forward<Fn>(fn));
+    MetaLoop<Args...>().run(std::move(tup), std::forward<Fn>(fn));
 }
 
 /// The version of apply with a tuple lvalue reference.
 template<class...Args, class Fn>
 inline static void apply(Fn&& fn, tuple<Args...>& tup) {
-    MetaLoop<Args...>().run(tup, forward<Fn>(fn));
+    MetaLoop<Args...>().run(tup, std::forward<Fn>(fn));
 }
 
 /// The version of apply with a tuple const reference.
 template<class...Args, class Fn>
 inline static void apply(Fn&& fn, const tuple<Args...>& tup) {
-    MetaLoop<Args...>().run(tup, forward<Fn>(fn));
+    MetaLoop<Args...>().run(tup, std::forward<Fn>(fn));
 }
 
 /**

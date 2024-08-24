@@ -39,7 +39,7 @@ CMAKE_DEPENDENT_OPTION(SLIC3R_DESKTOP_INTEGRATION "Allow perfoming desktop integ
 
 set(OPENVDB_FIND_MODULE_PATH "" CACHE PATH "Path to OpenVDB installation's find modules.")
 
-set(SLIC3R_GTK "2" CACHE STRING "GTK version to use with wxWidgets on Linux")
+set(SLIC3R_GTK "3" CACHE STRING "GTK version to use with wxWidgets on Linux")
 
 set(IS_CROSS_COMPILE FALSE)
 
@@ -553,7 +553,7 @@ if(SLIC3R_STATIC)
     set(USE_BLOSC TRUE)
 endif ()
 
-find_package(OpenVDB 5.0 COMPONENTS openvdb)
+find_package(OpenVDB COMPONENTS openvdb)
 if(OpenVDB_FOUND)
     slic3r_remap_configs(IlmBase::Half RelWithDebInfo Release)
     slic3r_remap_configs(Blosc::blosc RelWithDebInfo Release)

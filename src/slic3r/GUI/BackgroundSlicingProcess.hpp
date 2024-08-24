@@ -15,7 +15,7 @@
 #include "libslic3r/GCode/GCodeProcessor.hpp"
 
 
-namespace boost { namespace filesystem { class path; } }
+namespace boost { namespace filesystem { class path; namespace directory { class directory_iterator; class directory_entry; }; } }
 
 namespace Slic3r {
 

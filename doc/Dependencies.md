@@ -31,4 +31,14 @@
 * agg
 * catch2: Only Arch has packages for catch2, other distros at most catch (v1.x). Being strictly header only, we bundle this in the source tree. Used for the unit-test suites.
 
-
+## Macos build
+I built with from brew:
+OpenCascade: stable 7.8.1
+OpenEXR: stable 3.2.4
+OpenVDB: stable 11.0.0
+Curl: stable 8.9.1
+Nlopt: stable 2.8.0
+Cereal: stable 1.3.2
+tbb: stable 2021.13.0
+wxwidgets: stable 3.2.5
+icu4c: stable 74.2

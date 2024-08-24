@@ -12,7 +12,12 @@
 
 #include "libslic3r.h"
 
-namespace boost { namespace filesystem { class directory_entry; }}
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/directory.hpp>
+
+namespace boost { 
+    namespace filesystem { class path; class directory_iterator; class directory_entry; };
+}
 
 namespace Slic3r {
 

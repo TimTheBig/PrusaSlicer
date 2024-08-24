@@ -860,7 +860,7 @@ PrintObject::find_nonplanar_surfaces()
 
             // store all meshes with slope <= nonplanar_layers_angle in map. Map is necessary to keep facet ID
             for (int face_id = 0; face_id < mesh.indices().size(); ++ face_id) {
-                auto &face = mesh.indices(face_id);
+                auto &face = mesh.indices(face_id); // unused findout why
                 Vec3d normal = mesh.normal_by_face_id(face_id);
 
                 //TODO check if normals exist
