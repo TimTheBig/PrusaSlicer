@@ -23,3 +23,5 @@ deps/build-linux/*
 .pkg_cache
 CMakeUserPresets.json
 deps/download
+.cache
+compile_commands.json

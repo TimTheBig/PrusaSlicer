@@ -15,8 +15,11 @@
     #include <wx/rawbmp.h>
 #endif /* __WXGTK2__ */
 
-#include <../deps/NanoSVG/nanosvg/include/nanosvg.h>
-#include <../deps/NanoSVG/nanosvg/include/nanosvgrast.h>
+// #include <../deps/NanoSVG/nanosvg/include/nanosvg.h>
+#include <NanoSVG/nanosvg.h>
+// #include <../deps/NanoSVG/nanosvg/include/nanosvgrast.h>
+#include <NanoSVG/nanosvgrast.h>
+
 
 namespace Slic3r { namespace GUI {
 

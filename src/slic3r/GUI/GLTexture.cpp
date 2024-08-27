@@ -20,8 +20,10 @@
 
 #define STB_DXT_IMPLEMENTATION
 #include "stb_dxt/stb_dxt.h"
-#include <../deps/NanoSVG/nanosvg/include/nanosvg.h>
-#include <../deps/NanoSVG/nanosvg/include/nanosvgrast.h>
+// #include <../deps/NanoSVG/nanosvg/include/nanosvg.h>
+#include <NanoSVG/nanosvg.h>
+// #include <../deps/NanoSVG/nanosvg/include/nanosvgrast.h>
+#include <NanoSVG/nanosvgrast.h>
 
 #include "libslic3r/Utils.hpp"
 

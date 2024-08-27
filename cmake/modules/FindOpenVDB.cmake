@@ -349,22 +349,22 @@ endmacro()
 
 find_package(OpenEXR QUIET)
 if(NOT OpenEXR_FOUND)
-  pkg_check_modules(OpenEXR QUIET OpenEXR)
+  pkg_check_modules(OpenEXR QUIET)
 endif()
-if (OpenEXR_FOUND AND NOT TARGET OpenEXR::Half)
+if (OpenEXR_FOUND AND NOT TARGET OpenEXR::lib)
   message(STATUS "Falling back to OpenEXR found by pkg-config...")
 
   # find_library(OpenEXR NAMES Half)
   # if(OpenEXR_LIBRARY-NOTFOUND OR NOT OpenEXR_INCLUDE_DIRS)
   #   just_fail("OpenEXR::Half can not be found!")
   # endif()
-  
-  add_library(OpenEXR::Half UNKNOWN IMPORTED)
-  set_target_properties(OpenEXR::Half PROPERTIES
+
+  add_library(OpenEXR::lib UNKNOWN IMPORTED)
+  set_target_properties(OpenEXR::lib PROPERTIES
     IMPORTED_LOCATION "${OpenEXR_LIBRARY}"
     INTERFACE_INCLUDE_DIRECTORIES "${OpenEXR_INCLUDE_DIRS}")
 elseif(NOT OpenEXR_FOUND)
-  just_fail("OpenEXR::Half can not be found!")
+  just_fail("OpenEXR::lib can not be found!")
 endif()
 find_package(TBB ${_quiet} ${_required} COMPONENTS tbb)
 find_package(ZLIB ${_quiet} ${_required})
@@ -467,7 +467,7 @@ endif()
 set(_OPENVDB_VISIBLE_DEPENDENCIES
   Boost::iostreams
   Boost::system
-  OpenEXR::Half
+  OpenEXR::lib
 )
 
 set(_OPENVDB_DEFINITIONS)

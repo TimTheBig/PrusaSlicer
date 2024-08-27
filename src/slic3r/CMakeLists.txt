@@ -333,8 +333,8 @@ endforeach()
 
 encoding_check(libslic3r_gui)
 message("linking librares for libslic3r")
-set(NANOSVG_INCLUDE_DIR "deps/NanoSVG/nanosvg/include/nanosvg.h deps/NanoSVG/nanosvg/include/nanosvgrast.h")
-target_link_libraries(libslic3r_gui libslic3r avrdude libcereal imgui GLEW::GLEW OpenGL::GL hidapi libcurl ${wxWidgets_LIBRARIES} ${NANOSVG_INCLUDE_DIR})#NanoSVG::nanosvg NanoSVG::nanosvgrast)# the NanoSVG variables are set by FindNanoSVG.cmake the variables are: NANOSVG_INCLUDE_DIRS and NANOSVG_LIBRARIES
+set(NANOSVG_INCLUDE_DIR "deps/NanoSVG/nanosvg/include")
+target_link_libraries(libslic3r_gui libslic3r avrdude libcereal imgui GLEW::GLEW OpenGL::GL hidapi libcurl ${wxWidgets_LIBRARIES} NanoSVG::nanosvg NanoSVG::nanosvgrast)# the NanoSVG variables are set by FindNanoSVG.cmake the variables are: NANOSVG_INCLUDE_DIRS and NANOSVG_LIBRARIES
 
 if (MSVC)
     target_link_libraries(libslic3r_gui Setupapi.lib)

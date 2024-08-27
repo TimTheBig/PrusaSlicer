@@ -145,6 +145,17 @@ removed with:
 ```regx
 (-licudata -licui18n -licuuc)|((-l)icudata|icui18n|icuuc)|-lzstd
 ```
+and
+-lTKSTEP -> -llibTKSTEP\
 in all link.txt's
 
-in deps/build/dep_Boost-prefix/** piecewise_construct -> piecewise_construct_t
+wight Depname.patch for:
+
+in deps/build/dep_Boost-prefix/**: piecewise_construct -> piecewise_construct_t
+in deps/build/destdir/usr/local/include/boost/functional.hpp:
+"unary_function" -> "__unary_function"
+"binary_function" -> "__binary_function"
+in deps/build/destdir/usr/local/include/openvdb/version.h on line 59:
+"#define OPENVDB_LIBRARY_MAJOR_VERSION_NUMBER 8" -> "#define OPENVDB_LIBRARY_MAJOR_VERSION_NUMBER 11"
+in **/build.make:
+"OpenEXR::lib-NOTFOUND" -> "/opt/homebrew/Cellar/openexr/3.2.4/lib/libOpenEXR-3_2.31.3.2.4.dylib"
